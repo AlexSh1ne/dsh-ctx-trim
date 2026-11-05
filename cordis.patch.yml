@@ -1,0 +1,4 @@
+# dsh-ctx-trim 只插入一个宿主行；客户端半边由 dsh.client 声明，不写在这个文件里。
+- insert:
+    - id: dsh-ctx-trim
+      name: 'dsh-ctx-trim'

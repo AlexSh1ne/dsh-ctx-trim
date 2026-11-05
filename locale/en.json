@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Manual Context Compaction",
+    "description": "Adds a Context button to the session header: two levels of manual compaction with a local summary, no model call."
+  }
+}

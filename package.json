@@ -1,0 +1,62 @@
+{
+  "name": "dsh-ctx-trim",
+  "version": "1.0.0",
+  "description": "会话头部一键手动压缩上下文：正常 / 深度两档，本地摘要不调模型，切点落在结构边界上。Manual context compaction for DeepSeek Harness with two levels and a local summary.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.2 <0.3.0-0",
+    "node": ">=22.13.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-compaction": ">=0.2.0-rc.2 <0.3.0-0",
+    "@deepseek-ai/dsh-llm": ">=0.1.0-rc.2 <0.3.0-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "context",
+    "compaction",
+    "context-window",
+    "token",
+    "compress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexSh1ne/dsh-ctx-trim.git"
+  },
+  "homepage": "https://github.com/AlexSh1ne/dsh-ctx-trim#readme",
+  "bugs": {
+    "url": "https://github.com/AlexSh1ne/dsh-ctx-trim/issues"
+  },
+  "author": "AlexSh1ne",
+  "license": "MIT"
+}
