@@ -1,6 +1,6 @@
 {
   "name": "dsh-ctx-trim",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "会话头部一键手动压缩上下文：正常 / 深度两档，本地摘要不调模型，切点落在结构边界上。Manual context compaction for DeepSeek Harness with two levels and a local summary.",
   "type": "module",
   "main": "index.js",
@@ -26,6 +26,14 @@
   "peerDependencies": {
     "@deepseek-ai/dsh-compaction": ">=0.2.0-rc.2 <0.3.0-0",
     "@deepseek-ai/dsh-llm": ">=0.1.0-rc.2 <0.3.0-0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-compaction": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    }
   },
   "dsh": {
     "bundle": {
