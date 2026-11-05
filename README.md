@@ -14,6 +14,8 @@ dsh plugin --profile <你的profile> add dsh-ctx-trim
 
 装完刷新页面，会话标题右边多一个「上下文」按钮。
 
+别用 `npm i dsh-ctx-trim` 直接装进普通项目：它会去解析 `@deepseek-ai/*` 的 peer 依赖，撞出一串 ERESOLVE。所有 DSH 插件都是这样，正确入口只有 `dsh plugin add`（插件市场也走这条）。
+
 ## 用
 
 点按钮 → 面板里两行数字 → 点一档 → 等它跑完。
@@ -70,6 +72,10 @@ curl -X POST http://<host>:<port>/dsh-ctx-trim/run \
 ```
 
 只收 `application/json`，浏览器从别的站发来的跨站请求（`sec-fetch-site: cross-site`）直接 403。
+
+## 安全
+
+路由**不做身份校验**（它拿不到 GUI 的登录态），只挡跨站。也就是说：谁能连上宿主端口、又知道某个会话的 id，谁就能压那个会话。所以别把 DSH 的端口暴露到不受信任的网络——需要外网访问就用 `--trusted-host` 那一套在前面加一层。
 
 ## 兼容
 
